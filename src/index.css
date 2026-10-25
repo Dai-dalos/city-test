@@ -1,17 +1,182 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background: #f6f4ef;
+  background: #e6e3dc;
   color: #1c1c1c;
 }
 
-main {
+.app {
+  position: fixed;
+  inset: 0;
+}
+
+.message {
   max-width: 36rem;
   margin: 20vh auto 0;
   padding: 0 1rem;
   line-height: 1.5;
 }
 
-.error {
-  color: #b42318;
+.panel,
+.legend {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.panel {
+  top: 12px;
+  left: 12px;
+  width: 320px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 14px 16px;
+}
+
+.panel h1 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.panel h2 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+}
+
+.slider {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.slider input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  accent-color: #1f5fa8;
+}
+
+.panel select {
+  width: 100%;
+  margin-bottom: 8px;
+  font: inherit;
+}
+
+.shops {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shops li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 0;
+  padding: 4px 2px;
+  border-bottom: 1px solid #eee;
+  cursor: default;
+}
+
+.shops li:hover {
+  background: #eef3fa;
+}
+
+.shops .note {
+  grid-column: 2 / 4;
+  overflow-wrap: anywhere;
+}
+
+.shop-name {
+  font-weight: 500;
+}
+
+.shop-time {
+  padding-left: 8px;
+  font-variant-numeric: tabular-nums;
+  color: #555;
+}
+
+.status {
+  margin: 0 0 10px;
+  color: #555;
+}
+
+.status.warn {
+  color: #9a3412;
+  font-weight: 600;
+}
+
+.panel table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel th,
+.panel td {
+  padding: 4px 4px 4px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+
+.panel thead th {
+  font-weight: 500;
+  color: #777;
+}
+
+.note {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.method {
+  margin-top: 10px;
+  color: #555;
+  font-size: 12px;
+}
+
+.method p {
+  margin: 0 0 6px;
+}
+
+.legend {
+  right: 12px;
+  bottom: 44px;
+  padding: 10px 12px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 7px;
+  border-radius: 2px;
+  vertical-align: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.attribution {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #555;
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .panel {
+    width: auto;
+    right: 12px;
+    max-height: 45vh;
+  }
+  .legend {
+    display: none;
+  }
 }

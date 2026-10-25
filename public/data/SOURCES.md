@@ -10,6 +10,7 @@ Bounding box, west, south, east, north: 11.315255, 50.973934, 11.334340, 50.9913
 | `plots.geojson` | land use per plot: Egor Gaydukov | |
 | `streets.geojson`, `streets.graph.json` | pedestrian network: Egor Gaydukov | |
 | `zensus.geojson` | Zensus 2022, 100 m grid | dl-de/by-2-0 |
+| `shops.geojson` | OpenStreetMap, added for the shop list (not made by the generator) | ODbL |
 | `kit.json` | the generator | |
 
 ## Attribution
@@ -17,6 +18,8 @@ Bounding box, west, south, east, north: 11.315255, 50.973934, 11.334340, 50.9913
 Put this line on every map or page that uses the kit:
 
 > Buildings: 3D building models LoD2 © GDI-Th (dl-de/by-2-0). Land use and pedestrian network: Egor Gaydukov, InfAU, Bauhaus-Universität Weimar. Census grid: Zensus 2022, © Statistische Ämter des Bundes und der Länder (dl-de/by-2-0).
+
+If you use `shops.geojson`, add: Shops: © OpenStreetMap contributors (ODbL).
 
 ## `buildings.geojson`
 
@@ -90,6 +93,22 @@ How to read it:
 - In the source tables, "–" means exactly zero or set to zero. The kit stores it as `0`.
 
 244 of the 245 cells have a resident count, 21781 residents in total. 227 cells have a rent figure.
+
+## `shops.geojson`
+
+Shops from OpenStreetMap, © OpenStreetMap contributors, licence: Open Database License (ODbL), https://www.openstreetmap.org/copyright. Downloaded on 2026-10-25 from the Overpass API (overpass.private.coffee); the OpenStreetMap data is as of 15 July 2026. Query: every node, way and relation with a `shop` tag inside the kit's bounding box, `out center tags`. A way (a shop mapped as an outline) is stored as its centre point.
+
+327 shops, one point each. OpenStreetMap is mapped by volunteers: some shops may be missing, closed or out of date.
+
+| Field | Meaning |
+| --- | --- |
+| `id` | the OpenStreetMap object, as `node/<id>` or `way/<id>` |
+| `name` | the shop's name; `null` for 4 shops without one |
+| `shop` | the OpenStreetMap shop type, such as `clothes`, `bakery`, `books`; a plain `shop=yes` is stored as `shop` |
+| `address` | street and house number, where mapped |
+| `opening_hours` | opening hours in OpenStreetMap's notation, where mapped (283 shops) |
+
+The most common types: clothes 47, hairdresser 30, bakery 18, shoes 14, optician 12, mobile phone 10.
 
 ## `kit.json`
 
